@@ -6,3 +6,5 @@ Yurii Dilai : https://docs.google.com/spreadsheets/d/1tHrUQx_CwjxRYigJEcx4kEz0Oo
 
 Роксолана Король:  
 [Test Case.xlsx](https://github.com/Test-Automation-Crash-Course-24-10-22/team_02/files/9949578/Test.Case.xlsx)
+
+Rostyslav Heinysh: https://docs.google.com/spreadsheets/d/138Jv5CXp5zE41AJA2SssOT7i_jbySURF/edit#gid=1891319805

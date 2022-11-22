@@ -3,8 +3,8 @@ import unittest
 
 from selenium import webdriver
 
-from pom.login_page import LoginPage
-from pom.home_page import HomePage
+from pages.login_page import LoginPage
+from pages.home_page import HomePage
 from credentials import EMAIL, PASSWORD
 
 
@@ -31,15 +31,15 @@ class TestLogout(unittest.TestCase):
         login.click_login()
         time.sleep(1)
 
+        self.assertEqual(driver.get_cookie("login")["value"], EMAIL)
+
         home = HomePage(driver)
         home.click_logout()
-        time.sleep(2)
+        time.sleep(1)
+
+        self.assertEqual(driver.get_cookie("login")["value"], "deleted")
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()
         cls.driver.quit()
-
-
-if __name__ == '__main__':
-    unittest.main()

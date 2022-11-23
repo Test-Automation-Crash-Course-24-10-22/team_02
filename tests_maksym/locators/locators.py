@@ -9,3 +9,6 @@ class Locators:
 
     # home page objects :
     logout_button_xpath = "/html/body/app-root/div/div/rz-main-page/div/aside/rz-main-page-sidebar/div[2]/ul/li[14]/a"
+    hamburger_button_xpath = "/html/body/app-root/div/div/rz-header/rz-main-header/header/div/div/rz-mobile-user-menu/button"
+    switch_to_RU_xpath = '//*[@id="cdk-overlay-0"]/nav/div/div[2]/ul[2]/li[1]/div[1]/rz-lang/ul/li[1]/a'
+    language_text_xpath = '//*[@id="cdk-overlay-0"]/nav/div/div[2]/ul[2]/li[1]/div[1]/p'

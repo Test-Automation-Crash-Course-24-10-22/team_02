@@ -35,20 +35,17 @@ class TestProfile(unittest.TestCase):
         driver_profile.get("https://rozetka.com.ua/ua/cabinet/personal-information")
         time.sleep(1)
 
+        profile = ProfilePage(driver_profile)
+        
+        old_first_name, old_last_name = profile.get_old_fields()
         new_first_name, new_last_name = "нові дані", "нові дані"
 
-        profile = ProfilePage(driver_profile)
         profile.click_profile_section()
-        profile.click_edit()
-        time.sleep(1)
-        profile.enter_first_name(new_first_name)
-        time.sleep(1)
-        profile.enter_last_name(new_last_name)
-        time.sleep(1)
-        profile.click_save()
-        time.sleep(1)
+        profile.update_profile(new_first_name, new_last_name)
 
-        self.assertEqual(profile.get_updates(), (new_first_name, new_last_name))
+        self.assertEqual(profile.get_fields(), (new_first_name, new_last_name))
+
+        profile.update_profile(old_first_name, old_last_name)
 
     @classmethod
     def tearDownClass(cls):

@@ -19,5 +19,6 @@ class Locators:
     first_name_id = "firstName"
     last_name_id = "lastName"
     save_xpath = '//*[@id="cabinet-content"]/rz-cabinet-personal-information/rz-personal-information-section-header[1]/details/div/rz-cabinet-user-information/form/div/div/button[1]'
+    get_old_first_last_name_xpath = "/html/body/app-root/div/div/rz-app-cabinet/div/aside/nav/div/a/div[2]/p[1]"
     get_first_name_xpath = '//*[@id="cabinet-content"]/rz-cabinet-personal-information/rz-personal-information-section-header[1]/details/div/rz-cabinet-user-information/form/div/ul/li[2]/p'
     get_last_name_xpath = '//*[@id="cabinet-content"]/rz-cabinet-personal-information/rz-personal-information-section-header[1]/details/div/rz-cabinet-user-information/form/div/ul/li[1]/p'

@@ -2,11 +2,12 @@ from selenium.webdriver.common.by import By
 
 from locators.locators import Locators
 
+from rozetka.pages.base_page import BasePage
 
-class HomePage:
 
+class HomePage(BasePage):
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
         self.logout_button_xpath = Locators.logout_button_xpath
         self.hamburger_button_xpath = Locators.hamburger_button_xpath
         self.switch_to_RU_xpath = Locators.switch_to_RU_xpath

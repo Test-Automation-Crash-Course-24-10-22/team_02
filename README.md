@@ -11,8 +11,13 @@
 2. https://www.selenium.dev/documentation/
 - - - 
 ### Run tests :
-For unittest : run all tests - `python -m unittest` | run certain test - `python -m unittest tests.test_logout`
-For pytest   : run all tests - `pytest tests`       | run certain test - `pytest tests/test_logout.py`
+For *unittest* : 
+- run all tests - `python -m unittest`
+- run certain test - `python -m unittest tests.test_logout`
+
+For *pytest* :
+- run all tests - `pytest tests`
+- run certain test - `pytest tests/test_logout.py`
 - - -
 ### Generate report :
 Use the command : `pytest tests --html=report.html --self-contained-html`

@@ -1,33 +1,19 @@
-import time
-import unittest
-
-from selenium import webdriver
-
-from pages.home_page import HomePage
+from tests.base_test import BaseTest
+from rozetka.pages.home_page import HomePage
 
 
-class TestLanguageSwitch(unittest.TestCase):
+class TestLanguageSwitch(BaseTest):
 
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver_win32\chromedriver.exe")
-        cls.driver.maximize_window()
-    
     def test_from_UK_to_RU(self):
-        driver = self.driver
-        driver.get("https://rozetka.com.ua")
+        home_page = HomePage(self.driver)
+        home_page.click_left_tab()
 
-        home = HomePage(driver)
-        home.click_left_tab()
-        time.sleep(1)
-        home.click_switch_to_RU()
-        time.sleep(1)
-        home.click_left_tab()
-        time.sleep(1)
+        self.assertEqual(home_page.get_language_text(), "Мова")
+        self.assertEqual(home_page.get_city_text(), "Місто")
 
-        self.assertEqual(home.get_language_text(), "Язык")
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.close()
-        cls.driver.quit()
+        home_page \
+            .click_switch_to_RU() \
+            .click_left_tab()
+        
+        self.assertEqual(home_page.get_language_text(), "Язык")
+        self.assertEqual(home_page.get_city_text(), "Город")

@@ -1,54 +1,53 @@
 import time
-
-from selenium.webdriver.common.by import By
-
-from locators.locators import Locators
+from rozetka.pages.base_page import BasePage
+from rozetka.locators.profile_locator import ProfilePageLocators
 
 
-class ProfilePage:
+class ProfilePage(BasePage):
 
     def __init__(self, driver):
-        self.driver = driver
-        self.personal_data_xpath = Locators.personal_data_xpath
-        self.edit_xpath = Locators.edit_xpath
-        self.get_old_first_last_name_xpath = Locators.get_old_first_last_name_xpath
-        self.first_name_id = Locators.first_name_id
-        self.get_first_name_xpath = Locators.get_first_name_xpath
-        self.last_name_id = Locators.last_name_id
-        self.get_last_name_xpath = Locators.get_last_name_xpath
-        self.save_xpath = Locators.save_xpath
-
+        self.locator = ProfilePageLocators
+        super(ProfilePage, self).__init__(driver)
+    
+    def get_profile_section(self):
+        return self.driver.find_element(*self.locator.PROFILE_SECTION)
+    
     def click_profile_section(self):
-        self.driver.find_element(By.XPATH, self.personal_data_xpath).click()
+        self.get_profile_section().click()
+        return self
+    
+    def get_edit_button(self):
+        return self.driver.find_element(*self.locator.EDIT)
     
     def click_edit(self):
-        self.driver.find_element(By.XPATH, self.edit_xpath).click()
-    
-    def enter_first_name(self, first_name):
-        self.driver.find_element(By.ID, self.first_name_id).clear()
-        self.driver.find_element(By.ID, self.first_name_id).send_keys(first_name)
-
-    def enter_last_name(self, last_name):
-        self.driver.find_element(By.ID, self.last_name_id).clear()
-        self.driver.find_element(By.ID, self.last_name_id).send_keys(last_name)
-    
-    def click_save(self):
-        self.driver.find_element(By.XPATH, self.save_xpath).click()
-    
-    def update_profile(self, first_name, last_name):
-        self.click_edit()
-        time.sleep(1)
-        self.enter_first_name(first_name)
-        time.sleep(1)
-        self.enter_last_name(last_name)
-        time.sleep(1)
-        self.click_save()
-        time.sleep(1)
-    
-    def get_old_fields(self):
-        fields = self.driver.find_element(By.XPATH, self.get_old_first_last_name_xpath).text.split()
-        return fields[0], fields[1]
+        self.get_edit_button().click()
+        return self
     
     def get_fields(self):
-        return self.driver.find_element(By.XPATH, self.get_first_name_xpath).text, \
-               self.driver.find_element(By.XPATH, self.get_last_name_xpath).text
+        fields = self.driver.find_element(*self.locator.PERSONAL_DATA).text.split()
+        return fields[0], fields[1]
+    
+    def get_first_name(self):
+        return self.driver.find_element(*self.locator.FIRST_NAME)
+    
+    def enter_first_name(self, first_name):
+        self.get_first_name().clear()
+        self.get_first_name().send_keys(first_name)
+        time.sleep(1)
+        return self
+    
+    def get_last_name(self):
+        return self.driver.find_element(*self.locator.LAST_NAME)
+    
+    def enter_last_name(self, last_name):
+        self.get_last_name().clear()
+        self.get_last_name().send_keys(last_name)
+        time.sleep(1)
+        return self
+    
+    def get_save_button(self):
+        return self.driver.find_element(*self.locator.SAVE)
+    
+    def click_save(self):
+        self.get_save_button().click()
+        time.sleep(1)

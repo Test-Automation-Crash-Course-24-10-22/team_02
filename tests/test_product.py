@@ -21,4 +21,3 @@ class TestViewedProduct(BaseTest):
         viewed_product_section = home_page.get_viewed_product()
 
         self.assertEqual(viewed_product, viewed_product_section)
-    

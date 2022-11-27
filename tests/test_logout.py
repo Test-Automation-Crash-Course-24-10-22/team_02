@@ -9,7 +9,7 @@ class TestLogout(BaseTest):
     def test_logout_valid(self):
         # login into your account :
         login_page = LoginPage(self.driver)
-        login_page.open("signin/")
+        login_page.open("/signin/")
         login_page \
             .enter_email(EMAIL) \
             .enter_password(PASSWORD) \

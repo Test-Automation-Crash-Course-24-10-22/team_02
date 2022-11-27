@@ -38,3 +38,6 @@ class HomePage(BasePage):
     
     def get_city_text(self):
         return self.driver.find_element(*self.locator.CITY_TEXT).text
+    
+    def get_viewed_product(self):
+        return self.driver.find_element(*self.locator.VIEWED_PRODUCT).text

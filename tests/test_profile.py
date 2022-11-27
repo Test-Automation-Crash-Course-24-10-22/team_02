@@ -9,7 +9,7 @@ class TestProfile(BaseTest):
     def test_update_profile_valid(self):
         # login into your account :
         login_page = LoginPage(self.driver)
-        login_page.open("signin/")
+        login_page.open("/signin/")
         login_page \
             .enter_email(EMAIL) \
             .enter_password(PASSWORD) \
@@ -19,7 +19,7 @@ class TestProfile(BaseTest):
         
         # update your profile :
         profile_page = ProfilePage(self.driver)
-        profile_page.open("cabinet/personal-information/")
+        profile_page.open("/cabinet/personal-information/")
         
         old_first_name, old_last_name = profile_page.get_fields()
         new_first_name, new_last_name = "НовіДані", "НовіДані"

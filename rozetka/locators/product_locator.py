@@ -4,14 +4,14 @@ from selenium.webdriver.common.by import By
 class ProductPageLocators:
 
     # product's fields :
-    PRODUCT = (By.XPATH, '/html/body/app-root/div/div/rz-category/div/main/rz-catalog/div/div/section/rz-grid/ul/li[1]/rz-catalog-tile/app-goods-tile-default/div/div[2]/a[1]')
-    PRODUCT_DESCRIPTION = (By.XPATH, "/html/body/app-root/div/div/rz-product/div/rz-product-top/div/div[1]/h1")
+    PRODUCT = (By.XPATH, "(//a[@class='goods-tile__picture ng-star-inserted'])[1]")
+    PRODUCT_DESCRIPTION = (By.XPATH, "//h1[@class='product__title']")
 
     # feedback's fields :
-    FEEDBACKS = (By.XPATH, "/html/body/app-root/div/div/rz-product/div/rz-product-navbar/rz-tabs/div/div/ul/li[3]/a")
+    FEEDBACKS = (By.XPATH, "//a[@class='tabs__link' and text()=' Відгуки ']")
     WRITE_FEEDBACK = (By.CLASS_NAME, "button.button.button--medium.button--gray")
-    STAR_RATING = (By.XPATH, "/html/body/app-root/rz-single-modal-window/div[3]/div[2]/rz-product-add-comments/div/form/fieldset/div[1]/rz-comment-rating-stars/div/rz-rating/span[5]")
+    STAR_RATING = (By.XPATH, "(//span[@class='stars__item ng-star-inserted'])[5]")
     COMMENT = (By.ID, "comment-text")
-    LEAVE_FEEDBACK = (By.XPATH ,"/html/body/app-root/rz-single-modal-window/div[3]/div[2]/rz-product-add-comments/div/form/fieldset/div[10]/div/button[2]")
-    THANK = (By.XPATH, "/html/body/app-root/rz-single-modal-window/div[3]/div[2]/rz-thanks-modal/div/h4")
-    PROCESSING = (By.XPATH, "/html/body/app-root/rz-single-modal-window/div[3]/div[2]/rz-thanks-modal/div/p")
+    LEAVE_FEEDBACK = (By.XPATH ,"//button[contains(text(), ' Залишити відгук ')]")
+    THANK = (By.XPATH, "//rz-thanks-modal//h4[@class='thanks-modal__heading']")
+    PROCESSING = (By.XPATH, "//rz-thanks-modal//p[@class='thanks-modal__message']")

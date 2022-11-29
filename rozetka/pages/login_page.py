@@ -40,5 +40,5 @@ class LoginPage(BasePage):
     
     def click_captcha(self):
         self.get_captcha().click()
-        time.sleep(10) # 1 <-> 10
+        time.sleep(1) # 1 <-> 10
         return self

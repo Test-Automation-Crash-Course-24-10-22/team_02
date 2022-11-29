@@ -3,9 +3,11 @@ from selenium.webdriver.common.by import By
 
 class HomePageLocators:
 
-    LOGOUT = (By.XPATH, "/html/body/app-root/div/div/rz-main-page/div/aside/rz-main-page-sidebar/div[2]/ul/li[14]/a")
-    HAMBURGER_BUTTON = (By.XPATH, '/html/body/app-root/div/div/rz-header/rz-main-header/header/div/div/rz-mobile-user-menu/button')
-    RU = (By.XPATH, '//*[@id="cdk-overlay-0"]/nav/div/div[2]/ul[2]/li[1]/div[1]/rz-lang/ul/li[1]/a')
-    LANGUAGE_TEXT = (By.XPATH, '//*[@id="cdk-overlay-0"]/nav/div/div[2]/ul[2]/li[1]/div[1]/p')
-    CITY_TEXT = (By.XPATH, '//*[@id="cdk-overlay-0"]/nav/div/div[2]/ul[2]/li[1]/div[2]/p')
-    VIEWED_PRODUCT = (By.XPATH, '/html/body/app-root/div/div/rz-main-page/div/main/rz-main-page-content/rz-goods-sections/section[1]/rz-goods-section/ul/li[1]/rz-app-tile/div/div/a[2]')
+    text_field = "(//p[@class='side-menu__switch-label ng-tns-c94-1'])"
+
+    LOGOUT = (By.XPATH, "//li//a[contains(text(), 'Вихід')]")
+    HAMBURGER_BUTTON = (By.XPATH, "//button[@class='header__button ng-tns-c94-1']")
+    RU = (By.XPATH, "//nav//a[contains(text(), 'RU')]")
+    LANGUAGE_TEXT = (By.XPATH, f"{text_field}[1]")
+    CITY_TEXT = (By.XPATH, f"{text_field}[2]")
+    VIEWED_PRODUCT = (By.XPATH, "//a[@class='tile__title']")

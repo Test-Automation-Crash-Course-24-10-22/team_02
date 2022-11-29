@@ -8,6 +8,7 @@ class TestLanguageSwitch(BaseTest):
         home_page = HomePage(self.driver)
         home_page.click_left_tab()
 
+        self.assertTrue(home_page.check_page_loaded())
         self.assertEqual(home_page.get_language_text(), "Мова")
         self.assertEqual(home_page.get_city_text(), "Місто")
 

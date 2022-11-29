@@ -9,6 +9,9 @@ class HomePage(BasePage):
         self.locator = HomePageLocators
         super(HomePage, self).__init__(driver)
     
+    def check_page_loaded(self):
+        return True if self.driver.find_element(*self.locator.LOGO) else False
+
     def get_logout(self):
         return self.driver.find_element(*self.locator.LOGOUT)
     

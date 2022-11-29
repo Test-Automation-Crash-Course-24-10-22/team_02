@@ -23,4 +23,5 @@ class TestLogout(BaseTest):
         home_page = HomePage(self.driver)
         home_page.click_logout()
 
+        self.assertTrue(home_page.check_page_loaded())
         self.assertEqual(self.driver.get_cookie("login")["value"], "deleted")

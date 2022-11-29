@@ -4,7 +4,6 @@ certifi==2022.9.24
 cffi==1.15.1
 charset-normalizer==2.1.1
 colorama==0.4.6
-exceptiongroup==1.0.2    
 h11==0.14.0
 idna==3.4
 outcome==1.2.0

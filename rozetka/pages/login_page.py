@@ -4,9 +4,9 @@ from rozetka.locators.login_locator import LoginPageLocators
 
 
 class LoginPage(BasePage):
-
+    locator = LoginPageLocators
     def __init__(self, driver):
-        self.locator = LoginPageLocators
+        # self.locator = LoginPageLocators
         super(LoginPage, self).__init__(driver)
     
     def get_email(self):

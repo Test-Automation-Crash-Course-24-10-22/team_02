@@ -10,7 +10,7 @@ class HomePage(BasePage):
         super(HomePage, self).__init__(driver)
     
     def get_logout(self):
-        return self.driver.find_element(*self.locator.LOGOUT)
+        return self.driver.find_element(*HomePageLocators.LOGOUT_BUTTON)
     
     def click_logout(self):
         self.get_logout().click()

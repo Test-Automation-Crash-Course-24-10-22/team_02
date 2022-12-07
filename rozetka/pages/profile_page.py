@@ -20,6 +20,7 @@ class ProfilePage(BasePage):
         return self.driver.find_element(*self.locator.EDIT)
     
     def click_edit(self):
+        time.sleep(1)
         self.get_edit_button().click()
         return self
     

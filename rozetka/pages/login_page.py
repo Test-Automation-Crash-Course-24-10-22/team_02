@@ -36,6 +36,7 @@ class LoginPage(BasePage):
         return self
     
     def get_captcha(self):
+        time.sleep(1)
         return self.driver.find_element(*self.locator.CAPTCHA)
     
     def click_captcha(self):

@@ -1,8 +1,9 @@
 from tests.base_test import BaseTest
-from rozetka.pages.login_page import LoginPage
-from rozetka.pages.home_page import HomePage
+from rozetka.pages.login_page.login_page import LoginPage
+from rozetka.pages.home_page.home_page import HomePage
 from credentials import EMAIL, PASSWORD
 
+import time
 
 class TestLogout(BaseTest):
 
@@ -17,10 +18,11 @@ class TestLogout(BaseTest):
             .click_captcha() \
             .click_login()
 
-        self.assertEqual(self.driver.get_cookie("login")["value"], EMAIL)
-
         # logout from your account :
         home_page = HomePage(self.driver)
+
+        self.assertEqual(home_page.get_credentials_cookie(), EMAIL)
+
         home_page.click_logout()
 
-        self.assertEqual(self.driver.get_cookie("login")["value"], "deleted")
+        self.assertEqual(home_page.get_credentials_cookie(), "deleted")

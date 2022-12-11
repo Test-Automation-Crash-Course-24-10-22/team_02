@@ -1,4 +1,5 @@
 import time
+
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.login_locator import LoginPageLocators
 
@@ -37,5 +38,6 @@ class LoginPage(BasePage):
         return self.wait_element_to_click(self.locator.CAPTCHA)
     
     def click_captcha(self):
+        time.sleep(1)
         self.get_captcha().click()
         return self

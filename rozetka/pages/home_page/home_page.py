@@ -1,3 +1,5 @@
+import time
+
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.home_locator import HomePageLocators
 from rozetka.pages.home_page.left_bar_component import LeftBarComponent
@@ -15,6 +17,7 @@ class HomePage(BasePage):
     
     def click_logout(self):
         self.get_logout().click()
+        time.sleep(1)
         return self
     
     def get_left_tab(self):
@@ -23,6 +26,9 @@ class HomePage(BasePage):
     def click_left_tab(self):
         self.get_left_tab().click()
         return LeftBarComponent(self.driver)
+    
+    def get_viewed_title(self):
+        return self.wait_element_visibility(self.locator.VIEWED_TITLE).text
     
     def get_viewed_product(self):
         return self.wait_element_visibility(self.locator.VIEWED_PRODUCT).text

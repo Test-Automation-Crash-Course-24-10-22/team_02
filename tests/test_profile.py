@@ -1,6 +1,6 @@
 from tests.base_test import BaseTest
-from rozetka.pages.login_page import LoginPage
-from rozetka.pages.profile_page import ProfilePage
+from rozetka.pages.login_page.login_page import LoginPage
+from rozetka.pages.profile_page.profile_page import ProfilePage
 from credentials import EMAIL, PASSWORD
 
 
@@ -24,7 +24,7 @@ class TestProfile(BaseTest):
         old_first_name, old_last_name = profile_page.get_fields()
         new_first_name, new_last_name = "НовіДані", "НовіДані"
 
-        profile_page \
+        renewal_page = profile_page \
             .click_profile_section() \
             .click_edit() \
             .enter_first_name(new_first_name) \
@@ -33,7 +33,7 @@ class TestProfile(BaseTest):
         
         self.assertEqual(profile_page.get_fields(), (new_first_name, new_last_name))
 
-        profile_page \
+        renewal_page \
             .click_edit() \
             .enter_first_name(old_first_name) \
             .enter_last_name(old_last_name) \

@@ -1,6 +1,6 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.feedback_locator import FeedbackLocators
-from rozetka.pages.sleeper import wait
+from config.sleeper import wait
 
 
 class FeedbackComponent(BasePage):

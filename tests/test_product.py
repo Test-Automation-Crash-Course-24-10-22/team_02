@@ -7,14 +7,14 @@ class TestViewedProduct(BaseTest):
 
     def test_viewed_section(self):
         # see product specifications :
-        product_page_list = ProductListPage(self.driver)
+        product_list_page = ProductListPage(self.driver)
 
         viewed_products = []
         total_products = 3
 
         for product_number in range(total_products):
-            product_page_list.open("/notebooks/c80004/")
-            viewed_products.append(product_page_list.click_product(product_number).get_product_description())
+            product_list_page.open("/notebooks/c80004/")
+            viewed_products.append(product_list_page.click_product(product_number).get_product_description())
         
         # check whether the product is added to the section "viewed products" :
         home_page = HomePage(self.driver)

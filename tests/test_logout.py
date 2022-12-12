@@ -1,7 +1,7 @@
 from tests.base_test import BaseTest
 from rozetka.pages.login_page.login_page import LoginPage
 from rozetka.pages.home_page.home_page import HomePage
-from credentials import EMAIL, PASSWORD
+from config.credentials import EMAIL, PASSWORD
 
 
 class TestLogout(BaseTest):

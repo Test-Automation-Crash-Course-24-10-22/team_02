@@ -1,6 +1,6 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.personal_locator import PersonalLocators
-from rozetka.pages.sleeper import wait
+from config.sleeper import wait
 
 
 class PersonalComponent(BasePage):

@@ -1,7 +1,7 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.home_locator import HomePageLocators
 from rozetka.pages.home_page.left_bar_component import LeftBarComponent
-from rozetka.pages.sleeper import wait
+from config.sleeper import wait
 
 
 class HomePage(BasePage):

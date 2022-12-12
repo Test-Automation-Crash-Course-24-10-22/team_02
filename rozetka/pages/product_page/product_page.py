@@ -1,7 +1,7 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.product_locator import ProductPageLocators
 from rozetka.pages.product_page.feedback_component import FeedbackComponent
-from rozetka.pages.sleeper import wait
+from config.sleeper import wait
 
 
 class ProductPage(BasePage):

@@ -2,6 +2,7 @@
 - - -
 ### Description :
 In this project **Rozetka Website** is automated testing.
+
 This project provides an UI testing with Selenium WebDriver, using Page Object Model design pattern.
 - - -
 ### Framework Overview :
@@ -15,11 +16,11 @@ This makes for code that is cleaner, easier to read and maintain, and contains l
 - Unittest
 - - -
 ### Execute Tests:
-1. To run the project first make sure you have python installed in your system if not please install python (this code is written using python 3.8);
-2. Clone the repository to your local machine;
-3. Create venv with the command `python -m venv venv` and activate it;
-4. Install all the necessary packages with the command `pip install -r requirements.txt`;
-5. Add file **credentials** into **config** dir with your **email** and **password** from rozetka-website (e.g.: `EMAIL="example@gmail.com", PASSWORD="example"`);
+1. To run the project first make sure you have python installed in your system if not please install python
+2. Clone the repository to your local machine
+3. Create venv with the command `python -m venv venv` and activate it
+4. Install all the necessary packages with the command `pip install -r requirements.txt`
+5. Add file **credentials** into **config** dir with your **email** and **password** from rozetka-website (`EMAIL="example@gmail.com", PASSWORD="example"`)
 6. Run tests :
     - using **unittest** : 
         - all : `python -m unittest`

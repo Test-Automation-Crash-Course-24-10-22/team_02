@@ -1,7 +1,6 @@
-import time
-
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.login_locator import LoginPageLocators
+from rozetka.pages.sleeper import wait
 
 
 class LoginPage(BasePage):
@@ -13,6 +12,7 @@ class LoginPage(BasePage):
     def get_email(self):
         return self.driver.find_element(*self.locator.EMAIL)
     
+    @wait(after=1)
     def enter_email(self, email):
         self.get_email().clear()
         self.get_email().send_keys(email)
@@ -21,23 +21,24 @@ class LoginPage(BasePage):
     def get_password(self):
         return self.driver.find_element(*self.locator.PASSWORD)
     
+    @wait(after=1)
     def enter_password(self, password):
         self.get_password().clear()
         self.get_password().send_keys(password)
         return self
 
     def get_login_button(self):
-        return self.wait_element_to_click(self.locator.SUBMIT)
-    
+        return self.driver.find_element(*self.locator.SUBMIT)
+
+    @wait(before=1, after=1)
     def click_login(self):
-        time.sleep(5)
         self.get_login_button().click()
         return self
     
     def get_captcha(self):
-        return self.wait_element_to_click(self.locator.CAPTCHA)
+        return self.driver.find_element(*self.locator.CAPTCHA)
     
+    @wait(before=1)
     def click_captcha(self):
-        time.sleep(1)
         self.get_captcha().click()
         return self

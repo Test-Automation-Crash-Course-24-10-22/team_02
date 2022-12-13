@@ -132,3 +132,5 @@ dmypy.json
 credentials.py
 
 .idea
+
+allure_reports/

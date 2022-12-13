@@ -1,5 +1,6 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.home_locator import HomePageLocators
+from rozetka.pages.home_page.header_component import HeaderComponent
 from rozetka.pages.home_page.left_bar_component import LeftBarComponent
 from config.sleeper import wait
 
@@ -10,6 +11,9 @@ class HomePage(BasePage):
         self.locator = HomePageLocators
         super(HomePage, self).__init__(driver)
     
+    def move_header(self):
+        return HeaderComponent(self.driver)
+
     def get_logout(self):
         return self.driver.find_element(*self.locator.LOGOUT_BUTTON)
     

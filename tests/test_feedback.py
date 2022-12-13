@@ -37,4 +37,4 @@ class TestFeedback(BaseTest):
             .click_leave_feedback()
         
         self.assertEqual(product_page.get_thank_text(), "Дякуємо!")
-        self.assertEqual(product_page.get_processing_text(), "Ваш відгук буде опубліковано після проходження модерації")
+        self.assertEqual(product_page.get_processing_text(), "Ваш відгук опубліковано")

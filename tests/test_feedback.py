@@ -7,6 +7,10 @@ from config.credentials import EMAIL, PASSWORD
 class TestFeedback(BaseTest):
 
     def test_leave_feedback_valid(self):
+        """
+        We need to verify the functionality of leaving the feedback to the product using valid data.
+        """
+
         # login into your account :
         login_page = LoginPage(self.driver)
         login_page.open("/signin/")

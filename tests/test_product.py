@@ -6,6 +6,10 @@ from rozetka.pages.product_list_page.product_list_page import ProductListPage
 class TestViewedProduct(BaseTest):
 
     def test_viewed_section(self):
+        """
+        We need to check whether the viewed item is added to the section "Переглянуті товари".
+        """
+
         # see product specifications :
         product_list_page = ProductListPage(self.driver)
 

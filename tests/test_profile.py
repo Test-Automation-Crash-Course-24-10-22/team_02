@@ -7,6 +7,10 @@ from config.credentials import EMAIL, PASSWORD
 class TestProfile(BaseTest):
 
     def test_update_profile_valid(self):
+        """
+        We need to verify the functionality of updating the user's personal data using valid data.
+        """
+
         # login into your account :
         login_page = LoginPage(self.driver)
         login_page.open("/signin/")

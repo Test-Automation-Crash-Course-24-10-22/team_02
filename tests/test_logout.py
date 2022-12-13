@@ -7,6 +7,10 @@ from config.credentials import EMAIL, PASSWORD
 class TestLogout(BaseTest):
 
     def test_logout_valid(self):
+        """
+        We need to verify that the user can logout from his account.
+        """
+
         # login into your account :
         login_page = LoginPage(self.driver)
         login_page.open("/signin/")

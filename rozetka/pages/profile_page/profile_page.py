@@ -1,7 +1,7 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.profile_locator import ProfilePageLocators
 from rozetka.pages.profile_page.personal_component import PersonalComponent
-from config.sleeper import wait
+from rozetka.pages.sleeper import wait
 
 
 class ProfilePage(BasePage):

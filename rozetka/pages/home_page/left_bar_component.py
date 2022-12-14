@@ -1,6 +1,6 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.left_bar_locator import LeftBarLocators
-from config.sleeper import wait
+from rozetka.pages.sleeper import wait
 
 
 class LeftBarComponent(BasePage):

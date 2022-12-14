@@ -1,6 +1,6 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.login_locator import LoginPageLocators
-from config.sleeper import wait
+from rozetka.pages.sleeper import wait
 
 
 class LoginPage(BasePage):
@@ -38,7 +38,7 @@ class LoginPage(BasePage):
     def get_captcha(self):
         return self.driver.find_element(*self.locator.CAPTCHA)
     
-    @wait(before=1)
+    @wait(before=1.5)
     def click_captcha(self):
         self.get_captcha().click()
         return self

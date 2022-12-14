@@ -1,6 +1,7 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.header_locator import HeaderLocators
-from config.sleeper import wait
+from rozetka.pages.product_list_page.product_list_page import ProductListPage
+from rozetka.pages.sleeper import wait
 
 
 class HeaderComponent(BasePage):
@@ -28,3 +29,6 @@ class HeaderComponent(BasePage):
     
     def get_error_message(self):
         return self.driver.find_element(*self.locator.ERROR_MESSAGE).text
+    
+    def move_product_list(self):
+        return ProductListPage(self.driver)

@@ -1,3 +1,5 @@
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage:
@@ -15,3 +17,9 @@ class BasePage:
     
     def get_url(self):
         self.driver.current_url
+    
+    def wait_element_to_click(self, locator):
+        try:
+            return WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(locator))
+        except:
+            self.driver.quit()

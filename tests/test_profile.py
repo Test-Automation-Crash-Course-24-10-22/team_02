@@ -2,16 +2,20 @@ from tests.base_test import BaseTest
 from rozetka.pages.login_page.login_page import LoginPage
 from rozetka.pages.profile_page.profile_page import ProfilePage
 from config.credentials import EMAIL, PASSWORD
+import allure
 
 
 class TestProfile(BaseTest):
 
+    @allure.issue(
+        "https://github.com/Test-Automation-Crash-Course-24-10-22/team_02/issues/27",
+        "Verify the functionality of updating the user's personal data using valid data")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("""
+        We need to verify the functionality of updating the user's
+        personal data using valid data.
+    """)
     def test_update_profile_valid(self):
-        """
-        We need to verify the functionality of updating the user's personal data using valid data.
-        """
-
-        # login into your account :
         login_page = LoginPage(self.driver)
         login_page.open("/signin/")
         login_page \
@@ -21,7 +25,6 @@ class TestProfile(BaseTest):
             .click_captcha() \
             .click_login()
         
-        # update your profile :
         profile_page = ProfilePage(self.driver)
         profile_page.open("/cabinet/personal-information/")
         

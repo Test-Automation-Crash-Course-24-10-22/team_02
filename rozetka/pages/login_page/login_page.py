@@ -1,6 +1,7 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.login_locator import LoginPageLocators
 from rozetka.pages.sleeper import wait
+import allure
 
 
 class LoginPage(BasePage):
@@ -12,6 +13,7 @@ class LoginPage(BasePage):
     def get_email(self):
         return self.driver.find_element(*self.locator.EMAIL)
     
+    @allure.step('In order to log in : Enter your email address.')
     @wait(after=1)
     def enter_email(self, email):
         self.get_email().clear()
@@ -21,6 +23,7 @@ class LoginPage(BasePage):
     def get_password(self):
         return self.driver.find_element(*self.locator.PASSWORD)
     
+    @allure.step('Enter your password.')
     @wait(after=1)
     def enter_password(self, password):
         self.get_password().clear()
@@ -29,8 +32,9 @@ class LoginPage(BasePage):
 
     def get_login_button(self):
         return self.driver.find_element(*self.locator.SUBMIT)
-
-    @wait(before=1, after=1)
+    
+    @allure.step('Click the login button.')
+    @wait(before=10, after=1) # before = 10
     def click_login(self):
         self.get_login_button().click()
         return self
@@ -38,6 +42,7 @@ class LoginPage(BasePage):
     def get_captcha(self):
         return self.driver.find_element(*self.locator.CAPTCHA)
     
+    @allure.step('Click the captcha button (Check for robot).')
     @wait(before=1.5)
     def click_captcha(self):
         self.get_captcha().click()

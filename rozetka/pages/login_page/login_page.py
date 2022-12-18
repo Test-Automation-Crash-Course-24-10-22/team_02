@@ -34,7 +34,7 @@ class LoginPage(BasePage):
         return self.driver.find_element(*self.locator.SUBMIT)
     
     @allure.step('Click the login button.')
-    @wait(before=10, after=1) # before = 10
+    @wait(before=1, after=1)
     def click_login(self):
         self.get_login_button().click()
         return self

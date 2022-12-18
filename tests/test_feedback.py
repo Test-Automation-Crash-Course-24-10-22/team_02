@@ -2,16 +2,20 @@ from tests.base_test import BaseTest
 from rozetka.pages.login_page.login_page import LoginPage
 from rozetka.pages.product_list_page.product_list_page import ProductListPage
 from config.credentials import EMAIL, PASSWORD
+import allure
 
 
 class TestFeedback(BaseTest):
 
+    @allure.issue(
+        "https://github.com/Test-Automation-Crash-Course-24-10-22/team_02/issues/30",
+        "Verify the functionality of leaving the feedback to the product using valid data")
+    @allure.severity(allure.severity_level.NORMAL)
+    @allure.description("""
+        We need to verify the functionality of leaving the feedback to
+        the product using valid data.
+    """)
     def test_leave_feedback_valid(self):
-        """
-        We need to verify the functionality of leaving the feedback to the product using valid data.
-        """
-
-        # login into your account :
         login_page = LoginPage(self.driver)
         login_page.open("/signin/")
         login_page \
@@ -21,7 +25,6 @@ class TestFeedback(BaseTest):
             .click_captcha() \
             .click_login()
         
-        # move to the notebooks section and leave the feedback :
         product_list_page = ProductListPage(self.driver)
         product_list_page.open("/notebooks/c80004/")
 
@@ -37,4 +40,4 @@ class TestFeedback(BaseTest):
             .click_leave_feedback()
         
         self.assertEqual(product_page.get_thank_text(), "Дякуємо!")
-        self.assertEqual(product_page.get_processing_text(), "Ваш відгук опубліковано")
+        self.assertEqual(product_page.get_processing_text(), "Ваш відгук буде опубліковано після проходження модерації")

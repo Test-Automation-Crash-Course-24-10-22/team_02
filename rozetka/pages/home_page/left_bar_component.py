@@ -1,6 +1,7 @@
 from rozetka.pages.base_page import BasePage
 from rozetka.locators.left_bar_locator import LeftBarLocators
 from rozetka.pages.sleeper import wait
+import allure
 
 
 class LeftBarComponent(BasePage):
@@ -12,6 +13,7 @@ class LeftBarComponent(BasePage):
     def get_switch_RU(self):
         return self.driver.find_element(*self.locator.RU)
     
+    @allure.step("Move to the section 'Мова' and click on the 'RU' button.")
     @wait(after=1)
     def click_switch_to_RU(self):
         self.get_switch_RU().click()

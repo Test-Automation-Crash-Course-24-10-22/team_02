@@ -3,6 +3,7 @@ from rozetka.locators.home_locator import HomePageLocators
 from rozetka.pages.home_page.header_component import HeaderComponent
 from rozetka.pages.home_page.left_bar_component import LeftBarComponent
 from rozetka.pages.sleeper import wait
+import allure
 
 
 class HomePage(BasePage):
@@ -11,12 +12,17 @@ class HomePage(BasePage):
         self.locator = HomePageLocators
         super(HomePage, self).__init__(driver)
     
+    @allure.step("Move to the header section.")
     def move_header(self):
         return HeaderComponent(self.driver)
 
     def get_logout(self):
         return self.driver.find_element(*self.locator.LOGOUT_BUTTON)
     
+    @allure.step("""
+        Scroll down and on the left side, navigate
+        to the 'Вихід' button and click on it.
+    """)
     @wait(after=1)
     def click_logout(self):
         self.get_logout().click()
@@ -25,6 +31,7 @@ class HomePage(BasePage):
     def get_left_bar(self):
         return self.driver.find_element(*self.locator.HAMBURGER_BUTTON)
     
+    @allure.step("Move to the left top hamburger button and click on it.")
     @wait(after=1)
     def click_left_bar(self):
         self.get_left_bar().click()

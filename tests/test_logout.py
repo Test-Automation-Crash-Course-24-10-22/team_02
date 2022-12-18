@@ -2,16 +2,19 @@ from tests.base_test import BaseTest
 from rozetka.pages.login_page.login_page import LoginPage
 from rozetka.pages.home_page.home_page import HomePage
 from config.credentials import EMAIL, PASSWORD
+import allure
 
 
 class TestLogout(BaseTest):
 
-    def test_logout_valid(self):
-        """
+    @allure.issue(
+        "https://github.com/Test-Automation-Crash-Course-24-10-22/team_02/issues/29",
+        "Verify that the logout functionality works")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("""
         We need to verify that the user can logout from his account.
-        """
-
-        # login into your account :
+    """)
+    def test_logout_valid(self):
         login_page = LoginPage(self.driver)
         login_page.open("/signin/")
         login_page \
@@ -21,7 +24,6 @@ class TestLogout(BaseTest):
             .click_captcha() \
             .click_login()
 
-        # logout from your account :
         home_page = HomePage(self.driver)
 
         viewed_title_text = "Останні переглянуті товари"

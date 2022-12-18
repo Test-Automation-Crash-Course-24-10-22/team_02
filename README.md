@@ -29,6 +29,10 @@ This makes for code that is cleaner, easier to read and maintain, and contains l
         - all : `pytest tests`
         - certain : `pytest tests/test_logout.py`
 - - -
+### Allure reports :
+1. Obtain the folder **allure_reports**
+2. See reports with the command `allure serve allure_reports`
+- - -
 ### Information links :
 - [Selenium documentation 1](https://selenium-python.readthedocs.io/index.html)
 - [Selenium documentation 2](https://www.selenium.dev/documentation/)

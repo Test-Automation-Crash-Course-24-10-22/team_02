@@ -2,6 +2,7 @@ from rozetka.pages.base_page import BasePage
 from rozetka.locators.login_locator import LoginPageLocators
 from rozetka.pages.sleeper import wait
 import allure
+from allure_commons.types import AttachmentType
 
 
 class LoginPage(BasePage):
@@ -45,5 +46,6 @@ class LoginPage(BasePage):
     @allure.step('Click the captcha button (Check for robot).')
     @wait(before=1.5)
     def click_captcha(self):
+        allure.attach(self.driver.get_screenshot_as_png(), name="CAPTCHA-verification", attachment_type=AttachmentType.PNG)
         self.get_captcha().click()
         return self

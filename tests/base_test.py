@@ -1,18 +1,29 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 class BaseTest(unittest.TestCase):
 
+    SELENIUM_GRID = "http://172.18.0.2:4444/wd/hub"
+    ROZETKA_SITE = "http://rozetka.com.ua/ua"
+
     @classmethod
     def setUpClass(cls):
         cls.options = webdriver.ChromeOptions()
-        cls.options.add_argument("--start-maximized")
-        cls.driver = webdriver.Chrome(options=cls.options, service=Service(ChromeDriverManager().install()))
-        cls.driver.get("https://rozetka.com.ua/ua/")
-        cls.driver.implicitly_wait(1)
+
+        cls.options.add_argument('--ignore-ssl-errors=yes')
+        cls.options.add_argument('--ignore-certificate-errors')
+        cls.options.add_argument('--no-sandbox')
+        cls.options.add_argument('--disable-dev-shm-usage')
+
+        cls.driver = webdriver.Remote(
+            command_executor=cls.SELENIUM_GRID,
+            options=cls.options
+        )
+
+        cls.driver.maximize_window()
+        cls.driver.get(cls.ROZETKA_SITE)
+        cls.driver.implicitly_wait(30)
 
     @classmethod
     def tearDownClass(cls):

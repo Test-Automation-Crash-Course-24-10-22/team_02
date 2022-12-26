@@ -14,8 +14,9 @@ This makes for code that is cleaner, easier to read and maintain, and contains l
 - Selenium
 - Webdriver manager
 - Unittest
+- Docker
 - - -
-### Execute Tests:
+### Execute Tests :
 1. To run the project first make sure you have python installed in your system if not please install python
 2. Clone the repository to your local machine
 3. Create venv with the command `python -m venv venv` and activate it
@@ -28,6 +29,13 @@ This makes for code that is cleaner, easier to read and maintain, and contains l
     - using **pytest** : 
         - all : `pytest tests`
         - certain : `pytest tests/test_logout.py`
+- - -
+### Execute Tests via Docker :
+1. Clone the repository to your local machine
+2. Add file **credentials** into **config** dir with your **email** and **password** from rozetka-website (`EMAIL="example@gmail.com", PASSWORD="example"`)
+3. Run containers :
+    - selenium : `docker-compose up selenium`
+    - tests : `docker-compose up tests`
 - - -
 ### Allure reports :
 1. Obtain the folder **allure_reports**

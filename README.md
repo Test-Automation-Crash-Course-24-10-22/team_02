@@ -1,5 +1,8 @@
 # team_02
 - - -
+### Project implementation in Java :
+[Java project](https://github.com/Maksym637/selenium-java/)
+- - -
 ### Description :
 In this project **Rozetka Website** is automated testing.
 

@@ -4,7 +4,7 @@
 [Java project](https://github.com/Maksym637/selenium-java/)
 - - -
 ### Description :
-In this project **Rozetka Website** is automated testing.
+**Rozetka website** test automation project.
 
 This project provides an UI testing with Selenium WebDriver, using Page Object Model design pattern.
 - - -
